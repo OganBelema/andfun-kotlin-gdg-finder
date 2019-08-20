@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.android.gdgfinder.R
+import com.example.android.gdgfinder.databinding.HomeFragmentBinding
 
 class HomeFragment : Fragment() {
 
@@ -20,9 +21,12 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.home_fragment, container, false)
+        val binding = HomeFragmentBinding.inflate(inflater)
+
         viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
 
-        return view
+        binding.viewModel = viewModel
+
+        return binding.root
     }
 }
